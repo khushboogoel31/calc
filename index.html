@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="whole_app_logic.js"></script>
+<head>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+        table{
+            table-layout: fixed;
+            width: 300px;
+        }
+        td, th{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div ng-app="myApp">
+    <div ng-controller="personCtrl">
+
+        <h1>Person working</h1>
+        First Name: <input type="text" ng-model="firstName"><br>
+        Last Name: <input type="text" ng-model="lastName"><br>
+        <br>
+        Full Name: {{fullName()}}
+    </div>
+    <div ng-controller="calc">
+        <h2>Calculator:</h2>
+        <table align="center">
+            <thead>
+            <tr>
+                <th>Result so far</th>
+                <th>operation</th>
+                <th>new value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{res_So_Far}}</td>
+                <td>{{operation}}</td>
+                <td>{{new_value}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <br>
+
+        <table align="center">
+            <tbody style="border: solid black 1px;">
+            <tr>
+                <td>
+                    <div ng-show= "new_value!=0" ng-click = "new_value = 0">C</div>
+                    <div ng-show= "new_value==0" ng-click = "((res_So_Far = 0) || (operation = ''))">AC</div>
+                </td>
+                <td>
+                    <div ng-click = "new_value=new_value*(-1)">+/-</div>
+                </td>
+                <td>
+                    <div ng-click = "operation='%'">%</div>
+                </td>
+                <td>
+                    <div  ng-click = "operation='/'">/</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div ng-click= "new_value = new_value*10+7">7</div>
+                </td>
+                <td>
+                    <div ng-click= "new_value = new_value*10+8">8</div>
+                </td>
+                <td>
+                    <div ng-click= "new_value = new_value*10+9">9</div>
+                </td>
+                <td>
+                    <div  ng-click = "operation='*'">*</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div ng-click= "new_value = new_value*10+4">4</div>
+                </td>
+                <td>
+                    <div ng-click= "new_value = new_value*10+5">5</div>
+                </td>
+                <td>
+                    <div ng-click= "new_value = new_value*10+6">6</div>
+                </td>
+                <td>
+                    <div  ng-click = "operation='-'">-</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div ng-click= "new_value = new_value*10+1">1</div>
+                </td>
+                <td>
+                    <div ng-click= "new_value = new_value*10+2">2</div>
+                </td>
+                <td>
+                    <div ng-click= "new_value = new_value*10+3">3</div>
+                </td>
+                <td>
+                    <div  ng-click = "operation='+'">+</div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan='2'>
+                    <div ng-click= "new_value = new_value*10+0">0</div>
+                </td>
+                <td>
+                    <div>.</div>
+                </td>
+                <td>
+                    <div ng-show= "operation!=''" ng-click = "calculate()">=</div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+</div>
+
+</body>
+</html>
