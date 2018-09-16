@@ -112,10 +112,10 @@
                     <div ng-click= "new_value = new_value*10+0">0</div>
                 </td>
                 <td>
-                    <div>.</div>
+                    <div ng-show= "old_value != res_So_Far" ng-click="res_So_Far = old_value">undo</div>
                 </td>
                 <td>
-                    <div ng-show= "operation!=''" ng-click = "calculate()">=</div>
+                    <div ng-show= "operation!=''|| new_value!=0" ng-click = "calculate()">=</div>
                 </td>
             </tr>
             </tbody>
